@@ -224,3 +224,49 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
 .suite-intro-video { display:block; height:min(78vh,650px); max-height:650px; width:auto; max-width:100%; aspect-ratio:9 / 16; object-fit:contain; background:#171714; box-shadow:0 16px 44px rgba(30,28,23,.16); }
 .video-caption { position:absolute; bottom:15px; left:20px; right:20px; text-align:center; color:#625a4e; font-size:9px; letter-spacing:1.7px; }
 @media (max-width:760px) { .suite-section { grid-template-columns:1fr; } .suite-video-wrap { min-height:0; padding:28px 18px 48px; } .suite-intro-video { height:min(70vh,560px); max-width:100%; } .video-caption { bottom:14px; } }
+
+
+/* Mobile layout corrections: prevent narrow headings and clipped copy */
+@media (max-width: 600px) {
+  .site-header { align-items: flex-start; }
+  .brand-logo { width: 128px; max-width: 48vw; }
+  .menu-toggle { margin-left: auto; position: relative; z-index: 15; }
+  .primary-nav { z-index: 14; }
+  .intro-label { padding-top: 0; }
+  .intro-main { min-width: 0; }
+  .intro h2 { max-width: 100%; overflow-wrap: normal; font-size: clamp(34px, 9vw, 46px); line-height: 1.08; }
+  .section-heading { display: grid; grid-template-columns: minmax(0, 1fr); gap: 15px; margin-bottom: 38px; }
+  .section-heading .eyebrow { min-width: 0; width: 100%; padding-top: 0; margin-bottom: 0; }
+  .section-heading h2 { min-width: 0; width: 100%; max-width: 100%; font-size: clamp(39px, 10.5vw, 52px); line-height: 1.08; letter-spacing: -1.1px; overflow-wrap: normal; }
+  .benefit-grid { min-width: 0; }
+  .benefit { min-width: 0; }
+  .benefit h3 { overflow-wrap: break-word; }
+  .professional-copy h2 { font-size: clamp(43px, 11vw, 54px); line-height: 1.08; }
+  .leasing { padding: 76px 24px; }
+  .leasing-content { width: 100%; }
+  .leasing .eyebrow { color: #f0e7d7; }
+  .leasing h2 { font-size: clamp(40px, 10.8vw, 56px); line-height: 1.08; }
+  .leasing-copy { font-size: 14px; }
+  .leasing-actions { gap: 18px; }
+  .location h2 { font-size: clamp(40px, 10.5vw, 50px); }
+  .site-footer { overflow-wrap: anywhere; }
+}
+
+/* Mobile hero keeps the real video framed without artificial zoom */
+@media (max-width: 600px) {
+  .hero-video { object-position: 56% center; }
+  .hero-content { max-width: 100%; }
+  .hero h1 { max-width: 100%; overflow-wrap: normal; }
+}
+
+
+/* Mobile navigation contrast fix */
+@media (max-width: 900px) {
+  .site-header { color: #1c1c19; }
+  .site-header .brand { color: #1c1c19; }
+  .menu-toggle { color: #1c1c19; border: 1px solid rgba(28,28,25,.45); min-width: 44px; min-height: 44px; border-radius: 2px; }
+  .menu-toggle span { background: currentColor; }
+  .primary-nav, .primary-nav.open { background: #1c1d19; color: #fff; }
+  .primary-nav a, .primary-nav a:not(.nav-cta), .primary-nav .nav-cta { color: #fff !important; opacity: 1; }
+  .primary-nav a:focus-visible, .menu-toggle:focus-visible { outline: 2px solid #c6a56a; outline-offset: 3px; }
+}

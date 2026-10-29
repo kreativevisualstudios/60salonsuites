@@ -19,9 +19,11 @@ Before publishing, copy your vertical MP4 video into the assets folder and name 
 assets/60salonsuitesintro.mp4
 The Chapter 2 video player already points to this path. The video file itself was not included in this package yet.
 
+MOBILE HERO VIDEO
+The vertical mobile hero video is assets/hero-mobile.mp4. The homepage selects it on screens up to 600px wide and uses assets/hero-coastal.mp4 on wider screens.
 
-SUITES DIRECTORY PHOTOS
-The directory is ready for your photos. Add files named exactly suite1.jpg through suite14.jpg in the repository root, beside suite-directory.html. Do not put them in assets unless you also change the image paths. If a photo is not present yet, the card displays initials instead of a broken image.
-
-LEASING FORM
-All leasing buttons now open leasing-form.html on this website. That page embeds the already-configured form at https://kreativevisualstudios.github.io/60salonsuitesform/ and provides a direct-open fallback. The form application remains hosted by its existing repository, but visitors stay on the new website URL while viewing the wrapper page. Test the embedded form after publishing.
+MOBILE DIRECTORY FIXES
+- Logo links back to index.html.
+- Mobile navigation has explicit high-contrast text and visible hamburger lines.
+- Available for lease filter is configured for Suites #4 and #11 per latest user instructions.
+- Search and filter actions scroll to the results on mobile.
