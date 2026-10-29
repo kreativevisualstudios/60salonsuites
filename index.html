@@ -1,23 +1,184 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Google Script</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100%;
-            height: 100vh; /* Ajusta según lo necesites */
-            border: none;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171714">
+  <meta name="description" content="Discover 60 Salon Suites — a space for beauty professionals to build their own brand, serve their clients, and grow their business.">
+  <title>60 Salon Suites | Your Space. Your Future.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbyyJfsD8GjY4xMlcskZy0YCjhgflZikjaJ7uZf2zNzSc0tLopw4b1VsRKe_eabqCOE-2Q/exec" title="Google Apps Script"></iframe>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="60 Salon Suites home">
+      <img class="brand-logo" src="assets/60-salon-suites-logo1.png" alt="60 Salon Suites">
+    </a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+      <a href="#suites">OUR SUITES</a>
+      <a href="#professionals">FIND A STYLIST</a>
+      <a href="#experience">THE EXPERIENCE</a>
+      <a href="locations.html">LOCATIONS</a>
+      <a class="nav-cta" href="leasing-form.html">RENT A SUITE <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Welcome to 60 Salon Suites">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/hero-coastal.mp4" type="video/mp4">
+      </video>
+      <div class="hero-fallback" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> A SPACE TO BECOME</p>
+        <h1>Your talent<br>deserves its<br><em>own space.</em></h1>
+        <p class="hero-subtitle">Your vision. Your business. Your future.</p>
+        <p class="hero-copy">A place to build your brand, care for your clients, and create what comes next.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#suites">EXPLORE OUR SUITES <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="#professionals">FIND A STYLIST</a>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <span class="hero-location">60 SALON SUITES</span>
+        <a href="#intro" class="scroll-cue"><span class="scroll-line"></span> SCROLL TO DISCOVER</a>
+        <span class="hero-note">YOUR NEXT CHAPTER STARTS HERE</span>
+      </div>
+      <button class="video-toggle" type="button" aria-label="Pause background video" title="Pause background video">Ⅱ</button>
+    </section>
+
+    <section class="intro section-pad" id="intro">
+      <div class="intro-label">01 / A NEW CHAPTER</div>
+      <div class="intro-main">
+        <p class="eyebrow eyebrow-dark">MADE FOR YOUR AMBITION</p>
+        <h2>Your talent deserves<br>a space of its <em>own.</em></h2>
+        <div class="intro-columns">
+          <p>You’ve developed your craft, earned your clients, and imagined what your business could become. Now, find a space that lets your vision take center stage.</p>
+          <p>60 Salon Suites is designed for beauty professionals ready to shape their own identity and create an experience that feels unmistakably theirs.</p>
+        </div>
+        <a class="text-link" href="leasing-form.html">TAKE THE NEXT STEP <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="suite-section" id="suites">
+      <div class="suite-video-wrap">
+        <video class="suite-intro-video" controls playsinline preload="metadata" poster="assets/hallway-real.jpg" aria-label="A video tour of 60 Salon Suites in Brandon">
+          <source src="assets/60salonsuitesintro.mp4" type="video/mp4">
+          Your browser does not support HTML video.
+        </video>
+        <span class="video-caption">TAKE A LOOK INSIDE · BRANDON, FLORIDA</span>
+      </div>
+      <div class="suite-copy">
+        <p class="eyebrow">02 / YOUR SPACE</p>
+        <h2>A closer look.<br><em>Your future space.</em></h2>
+        <p>Step inside 60 Salon Suites and explore the real space where beauty professionals can build their business, welcome their clients, and make their vision their own.</p>
+        <a class="button button-light" href="#leasing">EXPLORE LEASING <span aria-hidden="true">↗</span></a>
+        <p class="small-note">Suite details, availability, and terms are confirmed directly with our team.</p>
+      </div>
+    </section>
+
+
+    <section class="experience section-pad" id="experience">
+      <div class="section-heading">
+        <p class="eyebrow eyebrow-dark">03 / THE EXPERIENCE</p>
+        <h2>More than a suite.<br><em>A business of your own.</em></h2>
+      </div>
+      <div class="benefit-grid">
+        <article class="benefit">
+          <span class="benefit-number">01</span>
+          <h3>Your business.<br>Your identity.</h3>
+          <p>Build a professional identity that reflects your craft, your style, and the experience you want to offer.</p>
+        </article>
+        <article class="benefit">
+          <span class="benefit-number">02</span>
+          <h3>Your space.<br>Your standards.</h3>
+          <p>Create a welcoming environment where your clients can enjoy a service shaped by you.</p>
+        </article>
+        <article class="benefit">
+          <span class="benefit-number">03</span>
+          <h3>Your next<br>chapter.</h3>
+          <p>Explore the next step in your professional journey with a space of your own.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="professionals" id="professionals">
+      <div class="professional-copy">
+        <p class="eyebrow">04 / OUR COMMUNITY</p>
+        <h2>Great talent.<br><em>Personal touch.</em></h2>
+        <p>Looking for your next beauty professional? Discover the independent talent connected with 60 Salon Suites.</p>
+        <a class="button button-light" href="suite-directory.html">FIND A PROFESSIONAL <span aria-hidden="true">↗</span></a>
+        <p class="small-note">This button currently opens your existing website. Update it to your live directory URL before launch if needed.</p>
+      </div>
+      <div class="professional-art">
+        <img src="assets/craft-signature.jpg" alt="Beauty professional providing a treatment in a modern salon" loading="lazy">
+        <div class="art-caption">YOUR CRAFT.<br>YOUR SIGNATURE.</div>
+      </div>
+    </section>
+
+    <section class="leasing section-pad" id="leasing">
+      <video class="leasing-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/next-chapter.mp4" type="video/mp4">
+      </video>
+      <div class="leasing-overlay" aria-hidden="true"></div>
+      <div class="leasing-content">
+        <p class="eyebrow">05 / YOUR OPPORTUNITY</p>
+        <h2>Your next chapter<br>starts <em>here.</em></h2>
+        <p class="leasing-copy">You have the skills. You have the vision. Now find the space to bring it all together.</p>
+        <div class="leasing-actions">
+          <a class="button button-light" href="leasing-form.html">APPLY TO LEASE A SUITE <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="leasing-note">Contact us to confirm current availability, pricing, and leasing terms.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <a class="brand brand-footer" href="#top" aria-label="60 Salon Suites home">
+        <img class="brand-logo" src="assets/60-salon-suites-logo.png" alt="60 Salon Suites">
+      </a>
+      <div class="footer-contact">
+        <span class="footer-heading">CORPORATE OFFICE</span>
+        <span>932 W Brandon Blvd.</span>
+        <span>Brandon, FL 33511</span>
+        <a href="mailto:60salonsuites@60salonsuites.com">60salonsuites@60salonsuites.com</a>
+      </div>
+    </div>
+    <div class="footer-middle">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div>
+          <a href="index.html">HOME</a>
+          <a href="index.html" target="_blank" rel="noopener">SERVICES</a>
+          <a href="leasing-form.html">LEASING</a>
+        </div>
+        <div>
+          <a href="locations.html">LOCATIONS</a>
+          <a href="suite-directory.html">SUITES DIRECTORY</a>
+          <a href="leasing-form.html">LEASING FORM</a>
+        </div>
+      </nav>
+      <div class="footer-social">
+        <span>Follow us on our social media!</span>
+        <a class="instagram-link" href="https://www.instagram.com/60suitessalon/" target="_blank" rel="noopener" aria-label="60 Salon Suites on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="instagram-dot"></circle></svg>
+          <span>INSTAGRAM</span>
+        </a>
+      </div>
+      <div class="footer-legal">
+        <a href="privacy.html">PRIVACY POLICY</a>
+        <a href="copyrights.html">PHOTOS / COPYRIGHTS</a>
+      </div>
+      <div class="footer-copyright">© 2026 by 60 Salon Suites &amp; Kreative Visual Studios</div>
+    </div>
+    <div class="footer-disclaimer">© 2026 60 Salon Suites. Every salon professional and salon business within a 60 Salon Suites establishment is also independently owned and operated. 60 Salon Suites bears no responsibility for the day-to-day operations, employment decisions, or personnel matters made by franchise owners or independent salon professionals/businesses.</div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
