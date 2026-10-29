@@ -27,3 +27,6 @@ MOBILE DIRECTORY FIXES
 - Mobile navigation has explicit high-contrast text and visible hamburger lines.
 - Available for lease filter is configured for Suites #4 and #11 per latest user instructions.
 - Search and filter actions scroll to the results on mobile.
+
+LEASING PAGE UPDATE
+All main-site leasing buttons now point to the local leasing-form.html page. That page uses the existing form project inside an iframe and provides a direct-open fallback if embedding is blocked.

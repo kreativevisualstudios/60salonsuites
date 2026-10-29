@@ -85,15 +85,15 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
 .professional-copy h2 { font-size: clamp(46px, 5.2vw, 75px); }
 .professional-copy > p:not(.eyebrow) { color: rgba(255,255,255,.72); }
 .professional-art { position: relative; min-height: 500px; overflow: hidden; background: #3e4039; }
-.professional-art > img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
-.professional-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg,rgba(0,0,0,.55),transparent 62%); }
+.professional-art > img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
+.professional-art::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(0deg,rgba(40,41,35,.72) 0%,rgba(0,0,0,.24) 28%,transparent 66%); }
 .art-frame { position: absolute; border: 1px solid rgba(255,255,255,.5); inset: 11% 16%; }
 .frame-two { inset: 17% 10% 7% 23%; border-color: rgba(225,198,150,.8); }
 .art-caption { position: absolute; z-index: 1; bottom: 15%; left: 14%; color: white; font-family: var(--serif); font-size: clamp(35px, 4vw, 58px); line-height: 1.05; text-shadow: 0 2px 20px #343630; }
 .leasing { position: relative; isolation: isolate; overflow: hidden; background: #282923; color: white; text-align: center; padding-top: clamp(100px, 13vw, 175px); padding-bottom: clamp(100px, 13vw, 175px); }
 .leasing-video, .leasing-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
 .leasing-video { z-index: -2; object-fit: cover; object-position: center; }
-.leasing-overlay { z-index: -1; background: linear-gradient(90deg,rgba(22,23,20,.72),rgba(22,23,20,.48)); }
+.leasing-overlay { z-index: -1; background: linear-gradient(180deg,rgba(40,41,35,.70) 0%,rgba(22,23,20,.48) 24%,rgba(22,23,20,.55) 100%); }
 .leasing-content { position: relative; max-width: 760px; margin: 0 auto; }
 .leasing .eyebrow { color: rgba(255,255,255,.82); }
 .leasing .eyebrow { color: #393327; }
@@ -269,4 +269,39 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
   .primary-nav, .primary-nav.open { background: #1c1d19; color: #fff; }
   .primary-nav a, .primary-nav a:not(.nav-cta), .primary-nav .nav-cta { color: #fff !important; opacity: 1; }
   .primary-nav a:focus-visible, .menu-toggle:focus-visible { outline: 2px solid #c6a56a; outline-offset: 3px; }
+}
+
+
+/* Refined transition between Chapter 4 and Chapter 5 */
+.professional-art { background: #282923; }
+.professional-art > img { object-position: center 58%; }
+.professional-art::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.02) 0%,
+    rgba(0,0,0,.02) 55%,
+    rgba(40,41,35,.32) 78%,
+    rgba(40,41,35,.88) 100%
+  );
+}
+.leasing {
+  margin-top: 0;
+  border-top: 0;
+}
+.leasing-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(40,41,35,.88) 0%,
+    rgba(22,23,20,.58) 22%,
+    rgba(22,23,20,.48) 100%
+  );
+}
+@media (max-width: 760px) {
+  .professional-art { min-height: 460px; }
+  .professional-art > img { object-position: center 64%; }
+  .art-caption { bottom: 12%; left: 9%; right: 7%; font-size: clamp(34px, 9vw, 46px); }
+  .leasing { padding-top: 92px; padding-bottom: 88px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .professional-art > img { transition: object-position .5s ease; }
 }
