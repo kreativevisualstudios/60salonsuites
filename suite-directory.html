@@ -228,7 +228,14 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
   .footer-disclaimer { font-size:9px; }
 }
 
-  </style>
+  
+/* Contrast fix: directory hero is light, so use dark navigation text */
+.site-header { color: #25231f !important; }
+.primary-nav a:not(.nav-cta) { color: #25231f !important; }
+.nav-cta { color: #25231f !important; border-color: rgba(37,35,31,.55) !important; }
+.menu-toggle { color: #25231f !important; border-color: rgba(37,35,31,.4) !important; }
+
+</style>
   <style>
     .directory-hero { background:#e9e3d8; padding:clamp(60px,8vw,110px) clamp(22px,7vw,100px) 44px; }
     .directory-kicker { font-size:10px; letter-spacing:2px; font-weight:700; color:#7a6a4c; margin:0 0 20px; }
