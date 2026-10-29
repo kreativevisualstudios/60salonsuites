@@ -1,18 +1,38 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Apply to lease a salon suite at 60 Salon Suites in Brandon, Florida.">
-<title>Lease a Suite | 60 Salon Suites</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f4ee">
+<meta name="description" content="60 Salon Suites leasing application.">
+<title>Leasing Application | 60 Salon Suites</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-.leasing-page{background:#f7f4ee;min-height:70vh;color:#25231f}.leasing-intro{padding:clamp(48px,8vw,100px) clamp(22px,8vw,110px) 38px;text-align:center;background:#e9e2d6}.leasing-intro .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#94794b}.leasing-intro h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(42px,7vw,76px);line-height:1.02;margin:18px 0}.leasing-intro h1 em{color:#a58a56}.leasing-intro p{max-width:650px;margin:0 auto;color:#625d54;line-height:1.7}.form-shell{max-width:1100px;margin:0 auto;padding:36px 22px 80px}.form-frame{width:100%;height:1000px;border:1px solid #ddd4c7;background:#fff;display:block}.form-fallback{text-align:center;margin:20px auto 0;color:#625d54;font-size:14px;line-height:1.7}.form-fallback a{display:inline-block;margin-top:10px;padding:14px 20px;background:#25231f;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.12em;font-size:11px}.form-note{font-size:12px;color:#777064;text-align:center;margin-top:14px}@media(max-width:650px){.form-shell{padding:22px 12px 48px}.form-frame{height:1150px}.leasing-intro{padding:48px 22px 32px}}
-</style></head><body>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f7f4ee}
+body{display:flex;flex-direction:column;height:100vh;height:100dvh;min-height:0}
+/* This page uses a compact header, not the oversized hero header from the home page. */
+.site-header{position:relative!important;inset:auto!important;z-index:5;box-sizing:border-box;flex:0 0 82px;width:100%;height:82px;min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px clamp(16px,4vw,48px)!important;background:#f7f4ee;color:#1c1c19!important;border-bottom:1px solid #e4ddcf}
+.site-header .brand{display:flex;align-items:center;flex:0 1 auto;min-width:0;max-width:65%;}
+.site-header .brand img{display:block!important;width:clamp(110px,18vw,190px)!important;max-width:100%!important;height:auto!important;max-height:58px;object-fit:contain}
+.site-header nav{display:block!important;flex:0 0 auto;margin-left:auto}
+.site-header nav a{display:inline-block;color:#1c1c19!important;font-size:14px;line-height:1.3;text-decoration:none;white-space:nowrap;padding:10px 13px;border:1px solid #c7ad69;border-radius:3px}
+.site-header nav a:hover{background:#c7ad69;color:#1c1c19!important}
+.leasing-embed{position:relative;flex:1 1 0;min-height:0;width:100%;margin:0;padding:0;overflow:hidden;background:#fff}
+.leasing-embed iframe{display:block;width:100%;height:100%;min-height:0;border:0;margin:0;padding:0;background:#fff}
+.embed-fallback{position:absolute;right:8px;bottom:8px;margin:0;padding:6px 10px;text-align:center;font-size:12px;background:rgba(247,244,238,.94);color:#625d54;border-radius:4px}
+.embed-fallback a{color:#725b31}
+.embed-fallback a{color:#725b31}
+@media(max-width:650px){.site-header{flex:0 0 64px;height:64px;min-height:64px;padding:6px 12px!important;gap:8px}.site-header .brand{max-width:58%}.site-header .brand img{width:clamp(96px,34vw,138px)!important;max-height:46px}.site-header nav a{font-size:12px;padding:8px 9px}.embed-fallback{font-size:11px;right:5px;bottom:5px;padding:5px 7px}}
+</style>
+</head>
+<body>
 <header class="site-header">
-<a class="brand" href="index.html" aria-label="60 Salon Suites home"><img src="assets/60-salon-suites-logo.png" alt="60 Salon Suites"></a>
-<nav aria-label="Main navigation"><a href="index.html#suites">Our Suites</a><a href="suite-directory.html">Suites Directory</a><a href="index.html#experience">The Experience</a><a href="locations.html">Locations</a><a class="nav-cta" href="leasing-form.html">Rent a Suite <span aria-hidden="true">↗</span></a></nav>
+  <a class="brand" href="index.html" aria-label="Back to 60 Salon Suites home"><img src="assets/60-salon-suites-logo.png" alt="60 Salon Suites"></a>
+  <nav aria-label="Main navigation"><a href="index.html">Back to website</a></nav>
 </header>
-<main class="leasing-page"><section class="leasing-intro"><div class="eyebrow">Your next chapter starts here</div><h1>Make room for <em>what’s next.</em></h1><p>Tell us about your beauty business and the suite you’re looking for. Complete the leasing inquiry below and our team can follow up with you.</p></section>
-<section class="form-shell" aria-label="Leasing application"><iframe class="form-frame" src="https://kreativevisualstudios.github.io/60salonsuitesform/" title="60 Salon Suites leasing application" loading="lazy" allow="forms" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="form-fallback"><p>If the form does not appear or cannot be submitted here, open it directly using the button below.</p><a href="https://kreativevisualstudios.github.io/60salonsuitesform/" target="_blank" rel="noopener">Open leasing form ↗</a><p class="form-note">The application is securely hosted in the existing 60 Salon Suites form project.</p></div></section></main>
-<footer class="site-footer"><div class="footer-main"><a href="index.html"><img src="assets/60-salon-suites-logo.png" alt="60 Salon Suites" class="footer-logo"></a><div><p>Corporate Office · 932 W Brandon Blvd., Brandon, FL 33511</p><a href="mailto:60salonsuites@60salonsuites.com">60salonsuites@60salonsuites.com</a></div><nav class="footer-nav" aria-label="Footer navigation"><div><a href="index.html">HOME</a><a href="index.html#experience">THE EXPERIENCE</a><a href="leasing-form.html">LEASING</a></div><div><a href="locations.html">LOCATIONS</a><a href="suite-directory.html">SUITES DIRECTORY</a><a href="https://www.instagram.com/60suitessalon/" target="_blank" rel="noopener">INSTAGRAM ↗</a></div></nav></div><div class="footer-bottom"><span>© 60 Salon Suites. All rights reserved.</span><span>Every salon professional and salon business is independently owned and operated.</span><span><a href="privacy.html">Privacy Policy</a> · <a href="copyrights.html">Photos / Copyrights</a></span></div></footer>
-</body></html>
+<main class="leasing-embed" aria-label="Leasing application">
+  <iframe src="https://kreativevisualstudios.github.io/60salonsuitesform/" title="Complete 60 Salon Suites leasing application" loading="eager" allow="forms" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <div class="embed-fallback">If the application cannot be displayed here, <a href="https://kreativevisualstudios.github.io/60salonsuitesform/" target="_blank" rel="noopener noreferrer">open the leasing form directly</a>.</div>
+</main>
+</body>
+</html>
