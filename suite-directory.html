@@ -263,6 +263,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
     .directory-heading p { font-size:12px; color:#77756c; margin:0 0 5px; }
     .suite-grid { max-width:1400px; margin:auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:stretch; }
     .suite-card { background:#fffefa; border:1px solid #e5e0d6; padding:22px; display:flex; flex-direction:column; min-width:0; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+     .suite-card[hidden] { display: none !important; }
     .suite-card:hover { transform:translateY(-4px); border-color:#c9b78e; box-shadow:0 16px 34px #29261d0d; }
     .card-topline { display:flex; align-items:center; justify-content:space-between; gap:10px; padding-bottom:17px; border-bottom:1px solid #eee9df; }
     .suite-number { color:#777064; font-size:10px; letter-spacing:1px; text-transform:uppercase; }
