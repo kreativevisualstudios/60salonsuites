@@ -120,8 +120,38 @@
       .suite-gallery-footer { padding: 11px 13px; gap: 9px; }
       .suite-gallery-caption { font-size: 9px; letter-spacing: .09em; }
     }
+    /* Leasing conversion prompt, revealed after the fourth gallery photo */
+    .gallery-conversion {
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 28px;
+      padding: 0 clamp(24px, 7vw, 100px); background: #f1eee8;
+      border-top: 1px solid rgba(23,23,20,.10); opacity: 0; visibility: hidden;
+      max-height: 0; overflow: hidden;
+      transition: opacity .65s ease, max-height .65s ease, padding .65s ease, visibility .65s ease;
+    }
+    .gallery-conversion.is-visible { opacity: 1; visibility: visible; max-height: 260px; padding-top: 38px; padding-bottom: 38px; }
+    .gallery-conversion .eyebrow { margin: 0 0 10px; color: #8b704d; font: 600 10px/1.4 "DM Sans",sans-serif; letter-spacing: .16em; }
+    .gallery-conversion h2 { margin: 0 0 8px; color: #171714; font: 500 clamp(24px,3vw,38px)/1.12 "Playfair Display",Georgia,serif; }
+    .gallery-conversion p:last-child { margin: 0; color: #625e56; font: 400 13px/1.65 "DM Sans",sans-serif; }
+    .gallery-conversion .button { white-space: nowrap; }
+    .mobile-leasing-cta { display: none; }
+    @media (max-width: 700px) {
+      .gallery-conversion, .gallery-conversion.is-visible { grid-template-columns: 1fr; gap: 18px; padding-left: 22px; padding-right: 22px; }
+      .gallery-conversion.is-visible { max-height: 360px; }
+      .gallery-conversion .button { justify-self: start; }
+      .mobile-leasing-cta {
+        position: fixed; z-index: 1000; left: 14px; right: 14px;
+        bottom: calc(12px + env(safe-area-inset-bottom)); display: flex;
+        justify-content: center; align-items: center; min-height: 50px; padding: 12px 18px;
+        background: #171714; color: #fff; border: 1px solid rgba(199,167,122,.75);
+        box-shadow: 0 8px 28px rgba(0,0,0,.20); text-decoration: none;
+        font: 600 10px/1.2 "DM Sans",sans-serif; letter-spacing: .13em;
+        opacity: 0; visibility: hidden; transform: translateY(12px);
+        transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+      }
+      .mobile-leasing-cta.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    }
     @media (prefers-reduced-motion: reduce) {
-      .suite-gallery-slide { transition: none; }
+      .suite-gallery-slide, .gallery-conversion, .mobile-leasing-cta { transition: none; }
     }
   </style>
 </head>
@@ -219,6 +249,14 @@
       </div>
     </section>
 
+    <section class="gallery-conversion" id="gallery-conversion" aria-live="polite" aria-hidden="true">
+      <div>
+        <p class="eyebrow">READY FOR YOUR NEXT CHAPTER?</p>
+        <h2>Your business deserves a space of its own.</h2>
+        <p>Take the next step toward a private suite designed around your talent and your vision.</p>
+      </div>
+      <a class="button button-light" href="leasing-form.html">APPLY FOR LEASING <span aria-hidden="true">↗</span></a>
+    </section>
 
     <section class="experience section-pad" id="experience">
       <div class="section-heading">
@@ -275,6 +313,8 @@
     </section>
   </main>
 
+  <a class="mobile-leasing-cta" href="leasing-form.html" aria-label="Apply to lease a salon suite">INTERESTED IN A SUITE? &nbsp; APPLY NOW ↗</a>
+
   <footer class="site-footer">
     <div class="footer-top">
       <a class="brand brand-footer" href="#top" aria-label="60 Salon Suites home">
@@ -328,6 +368,7 @@
       const next = gallery.querySelector(".suite-gallery-next");
       const caption = gallery.querySelector(".suite-gallery-caption");
       const count = gallery.querySelector(".suite-gallery-count");
+      const conversion = document.querySelector("#gallery-conversion");
       const captions = [
         "THE PROPERTY · BRANDON, FLORIDA",
         "PRIVATE SALON SUITES",
@@ -357,6 +398,10 @@
         caption.textContent = captions[current];
         count.textContent = String(current + 1).padStart(2, "0") + " / " +
                             String(slides.length).padStart(2, "0");
+        if (conversion && current === slides.length - 1) {
+          conversion.classList.add("is-visible");
+          conversion.setAttribute("aria-hidden", "false");
+        }
       }
 
       function stopAuto() {
@@ -398,6 +443,27 @@
 
       showSlide(0);
       startAuto();
+    })();
+
+    (() => {
+      const stickyCta = document.querySelector(".mobile-leasing-cta");
+      const leasingSection = document.querySelector("#leasing");
+      if (!stickyCta) return;
+      let leasingIsVisible = false;
+      if (leasingSection && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+          leasingIsVisible = entries.some(entry => entry.isIntersecting);
+          updateStickyCta();
+        }, { threshold: 0.12 });
+        observer.observe(leasingSection);
+      }
+      function updateStickyCta() {
+        const shouldShow = window.innerWidth <= 700 && window.scrollY > 420 && !leasingIsVisible;
+        stickyCta.classList.toggle("is-visible", shouldShow);
+      }
+      window.addEventListener("scroll", updateStickyCta, { passive: true });
+      window.addEventListener("resize", updateStickyCta);
+      updateStickyCta();
     })();
   </script>
 
