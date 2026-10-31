@@ -153,9 +153,38 @@
     @media (prefers-reduced-motion: reduce) {
       .suite-gallery-slide, .gallery-conversion, .mobile-leasing-cta { transition: none; }
     }
+
+    /* Elegant transition into the stylist directory */
+    .directory-transition {
+      position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
+      background: #f1eee8; color: #171714; opacity: 0; visibility: hidden;
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path .48s cubic-bezier(.77,0,.18,1), opacity .2s ease, visibility .48s;
+      pointer-events: none;
+    }
+    .directory-transition.is-active {
+      opacity: 1; visibility: visible; clip-path: inset(0 0 0 0);
+    }
+    .directory-transition-inner { text-align: center; padding: 24px; transform: translateY(14px); opacity: 0; transition: transform .35s ease .16s, opacity .35s ease .16s; }
+    .directory-transition.is-active .directory-transition-inner { transform: translateY(0); opacity: 1; }
+    .directory-transition-kicker { margin: 0 0 13px; color: #8b704d; font: 600 10px/1.4 "DM Sans",sans-serif; letter-spacing: .2em; }
+    .directory-transition-title { margin: 0; font: 500 clamp(30px,5vw,52px)/1.08 "Playfair Display",Georgia,serif; }
+    .directory-transition-title em { font-weight: 400; }
+    .directory-transition-rule { display: block; width: 42px; height: 1px; margin: 22px auto 0; background: #c7a77a; transform: scaleX(0); transform-origin: center; transition: transform .35s ease .28s; }
+    .directory-transition.is-active .directory-transition-rule { transform: scaleX(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .directory-transition, .directory-transition-inner, .directory-transition-rule { transition: none !important; }
+    }
   </style>
 </head>
 <body>
+  <div class="directory-transition" id="directory-transition" aria-hidden="true">
+    <div class="directory-transition-inner">
+      <p class="directory-transition-kicker">60 SALON SUITES · BRANDON, FLORIDA</p>
+      <h2 class="directory-transition-title">Find your beauty<br><em>professional.</em></h2>
+      <span class="directory-transition-rule"></span>
+    </div>
+  </div>
   <header class="site-header" id="top">
     <a class="brand" href="index.html" aria-label="60 Salon Suites home">
       <img class="brand-logo" src="assets/60-salon-suites-logo.png" alt="60 Salon Suites">
@@ -165,7 +194,7 @@
     </button>
     <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
       <a href="#suites">OUR SUITES</a>
-      <a href="suite-directory.html">FIND A STYLIST</a>
+      <a href="suite-directory.html" data-directory-transition>FIND A STYLIST</a>
       <a href="#experience">THE EXPERIENCE</a>
       <a href="locations.html">LOCATIONS</a>
       <a class="nav-cta" href="leasing-form.html">RENT A SUITE <span aria-hidden="true">↗</span></a>
@@ -187,7 +216,7 @@
         <p class="hero-copy">A place to build your brand, care for your clients, and create what comes next.</p>
         <div class="hero-actions">
           <a class="button button-light" href="#suites">EXPLORE OUR SUITES <span aria-hidden="true">↗</span></a>
-          <a class="button button-outline" href="suite-directory.html">FIND A STYLIST</a>
+          <a class="button button-outline" href="suite-directory.html" data-directory-transition>FIND A STYLIST</a>
         </div>
       </div>
       <div class="hero-bottom">
@@ -467,6 +496,22 @@
     })();
   </script>
 
+
+  <script>
+    (() => {
+      const overlay = document.getElementById("directory-transition");
+      if (!overlay) return;
+      document.querySelectorAll("[data-directory-transition]").forEach(link => {
+        link.addEventListener("click", event => {
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+          event.preventDefault();
+          const destination = link.href;
+          overlay.classList.add("is-active");
+          window.setTimeout(() => { window.location.href = destination; }, 520);
+        });
+      });
+    })();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
