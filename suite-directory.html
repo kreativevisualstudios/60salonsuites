@@ -270,6 +270,10 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
     .status-pill { font-size:8px; letter-spacing:1px; padding:6px 8px; color:#68665d; background:#f0eee7; }
     .is-available .status-pill { color:#5a4928; background:#eee2c8; }
     .card-profile { display:flex; align-items:center; gap:14px; margin:22px 0 14px; min-width:0; }
+    .shared-professional { margin-top:20px; padding-top:4px; border-top:1px solid #eee9df; }
+    .shared-professional .card-profile { margin-top:18px; }
+    .shared-note { color:#8a806f; font-size:10px; line-height:1.5; margin:0 0 12px 82px; }
+
     .pro-photo { width:68px; height:68px; flex:0 0 68px; border-radius:50%; background:#e9e3d8; display:grid; place-items:center; overflow:hidden; color:#776344; font-family:var(--serif); font-size:24px; border:1px solid #d7cbb3; }
     .pro-photo img { width:100%; height:100%; object-fit:cover; }
     .pro-photo img.broken-photo { display:none; }
@@ -277,6 +281,10 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
     .profile-copy h2 { font-size:17px; line-height:1.3; margin:0 0 6px; overflow-wrap:anywhere; }
     .professional-name { color:#77756c; font-size:12px; margin:0; }
     .suite-location { color:#77756c; font-size:11px; margin:0 0 18px; }
+    .map-location { display:inline-flex; align-items:center; flex-wrap:wrap; gap:2px; width:fit-content; text-decoration:none; transition:color .2s ease; }
+    .map-location:hover { color:#9a8050; text-decoration:underline; text-underline-offset:3px; }
+    .map-location .map-hint { color:#9a8050; font-size:9px; letter-spacing:.45px; margin-left:3px; }
+
     .suite-location span { color:#9a8050; font-size:16px; padding-right:4px; }
     .service-block { border-top:1px solid #eee9df; padding-top:16px; flex:1; }
     .mini-label { font-size:9px; letter-spacing:1.5px; font-weight:700; color:#9a8050; }
@@ -342,7 +350,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
     </div>
     <div class="suite-grid" id="suite-grid">
       
-      <article class="suite-card " data-name="rosa dominican stylist" data-professional="rosa dominican stylist" data-location="brandon, fl 33511" data-services="beauty and hair styling; contact Instagram for current services" data-available="false">
+      <article class="suite-card " data-name="rosa dominican stylist her beautiful hair extensions vip marlenne peguero" data-professional="rosa dominican stylist marlenne peguero" data-location="brandon, fl 33511" data-services="beauty and hair styling; hair extensions; contact Instagram for current services" data-available="false">
         <div class="card-topline"><span class="suite-number">Suite #1</span><span class="status-pill">INDEPENDENT PROFESSIONAL</span></div>
         <div class="card-profile">
           <div class="pro-photo" data-initials="RD">
@@ -353,9 +361,26 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Rosa Dominican Stylist</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Contact the salon through Instagram for current services and appointments.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/rosadominicanstylist/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Rosa Dominican Stylist" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
+        <div class="shared-professional">
+          <div class="card-profile">
+            <div class="pro-photo" data-initials="MP">
+              <img src="assets/suite1-1.jpg" alt="Her Beautiful Hair Extensions VIP — Marlenne Peguero" loading="lazy">
+            </div>
+            <div class="profile-copy">
+              <h2>Her Beautiful Hair Extensions VIP</h2>
+              <p class="professional-name">Marlenne Peguero</p>
+            </div>
+          </div>
+          <p class="shared-note">Also located in Suite #1 · Independent beauty professional</p>
+          <div class="card-actions">
+            <a class="social-link instagram-only" href="https://www.instagram.com/her.beautiful.hair" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Her Beautiful Hair Extensions VIP" title="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg>
+            </a>
+          </div>
+        </div>
       </article>
       <article class="suite-card" data-name="rosalía dominican hair salon" data-professional="rosalía dominican hair salon" data-location="brandon, fl 33511" data-services="hair salon; contact Instagram for current services" data-available="false">
         <div class="card-topline"><span class="suite-number">Suite #2</span><span class="status-pill">INDEPENDENT PROFESSIONAL</span></div>
@@ -368,7 +393,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Rosalía Dominican Hair Salon</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Contact the salon through Instagram for current services and appointments.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/rosaliadominicanhairstylist/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Rosalía Dominican Hair Salon" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
@@ -383,14 +408,14 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Claudia</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Nail extensions, Manicure, pedicure , Nail art , henna, eyebrow and lip waxing.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/claunailsbrows/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
       <article class="suite-card is-available" data-name="available for lease" data-professional="for lease" data-location="brandon, fl 33511" data-services="suite available for lease" data-available="true">
       <div class="card-topline"><span class="suite-number">Suite #4</span><span class="status-pill">AVAILABLE</span></div>
       <div class="card-profile"><div class="pro-photo" data-initials="60"><img src="assets/suite4.jpg" alt="Suite 4 available for lease" loading="lazy"></div><div class="profile-copy"><h2>Available</h2><p class="professional-name">For lease</p></div></div>
-      <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+      <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
       <div class="service-block"><span class="mini-label">AVAILABLE SUITE</span><p>This suite is available for lease. Contact 60 Salon Suites for details and leasing information.</p></div>
       <div class="card-actions"><a class="leasing-link" href="leasing-form.html">INQUIRE ABOUT THIS SUITE ↗</a></div>
     </article>
@@ -405,7 +430,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Distinctve Kinks</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Natural hair stylist and loctician specializing in braids, twists and locs including Microlocs and Sisterloc maintenance.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/distinctivekinks/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
@@ -425,7 +450,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Dani &amp; Abby</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Contact the salon through Instagram for current services and appointments.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/abbyluxenails_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Abby Luxe Nails" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a><a class="social-link instagram-only" href="https://www.instagram.com/the_nail_society_by_dani/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de The Nail Society by Dani" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
@@ -440,7 +465,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">The Beauty Studio</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Contact The Beauty Studio through Instagram for current services and appointments.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/thebeautystudio813/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de The Beauty Studio" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
@@ -455,7 +480,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Jay</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Hi! My name is Jay, I cater to all types of hair, I specialize in hair extensions-keratin treatment-Dominican hair blow out- color corrections-balayage.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/bellabellahairsalon?igsh=dGRkYTN2YjB4YTE=" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
@@ -475,7 +500,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Nail professionals</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Nail services. Visit either Instagram profile for current services and appointments.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/dalidnails/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de DaliDnails" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a><a class="social-link instagram-only" href="https://www.instagram.com/madydnails/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de MadyDnails" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
@@ -490,14 +515,14 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Nail professionals</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Balayage, Hair Coloring, Hair Botox, Deep Hydration, Hair Repair, Haircuts, Styling, Butterfly Cut, Hair Extensions (Nano Rings), Training for Stylists.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/yourcrownbybeatriz/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
       <article class="suite-card is-available" data-name="available for lease" data-professional="for lease" data-location="brandon, fl 33511" data-services="suite available for lease" data-available="true">
       <div class="card-topline"><span class="suite-number">Suite #11</span><span class="status-pill">AVAILABLE</span></div>
       <div class="card-profile"><div class="pro-photo" data-initials="60"><img src="assets/suite11.jpg" alt="Suite 11 available for lease" loading="lazy"></div><div class="profile-copy"><h2>Available</h2><p class="professional-name">For lease</p></div></div>
-      <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+      <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
       <div class="service-block"><span class="mini-label">AVAILABLE SUITE</span><p>This suite is available for lease. Contact 60 Salon Suites for details and leasing information.</p></div>
       <div class="card-actions"><a class="leasing-link" href="leasing-form.html">INQUIRE ABOUT THIS SUITE ↗</a></div>
     </article>
@@ -512,7 +537,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Slayy by Esmi</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Contact Slayy by Esmi through Instagram for current services and appointments.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/slayybyesmi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Slayy by Esmi" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
@@ -527,7 +552,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Luna Beauty Studio</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Contact Luna Beauty Studio through Instagram for current services and appointments.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/luna_.beauty._studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Luna Beauty Studio" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
@@ -542,7 +567,7 @@ h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -1.5px; font-s
             <p class="professional-name">Dominican Beauty by Yudy</p>
           </div>
         </div>
-        <p class="suite-location"><span aria-hidden="true">⌖</span> Brandon, FL 33511</p>
+        <a class="suite-location map-location" href="https://www.google.com/maps/search/?api=1&query=932+W+Brandon+Blvd%2C+Brandon%2C+FL+33511" target="_blank" rel="noopener noreferrer" aria-label="Get directions to 60 Salon Suites in Google Maps"><span aria-hidden="true">⌖</span> Brandon, FL 33511 <span class="map-hint">· GET DIRECTIONS ↗</span></a>
         <div class="service-block"><span class="mini-label">SPECIALTIES</span><p>Contact Dominican Beauty by Yudy through Instagram for current services and appointments.</p></div>
         <div class="card-actions"><a class="social-link instagram-only" href="https://www.instagram.com/dominicanbeautyby_yudy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Dominican Beauty by Yudy" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" class="ig-dot"></circle></svg></a></div>
       </article>
