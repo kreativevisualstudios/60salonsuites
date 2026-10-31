@@ -10,6 +10,120 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* 60 Salon Suites photo carousel */
+    .suite-section .suite-gallery {
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #f1eee8;
+      overflow: hidden;
+    }
+    .suite-gallery-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 680px;
+      overflow: hidden;
+      background: #f1eee8;
+    }
+    .suite-gallery-slide {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 700ms ease, visibility 700ms ease;
+    }
+    .suite-gallery-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+    .suite-gallery-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+    .suite-gallery-arrow {
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255,255,255,.75);
+      border-radius: 50%;
+      background: rgba(23,23,20,.58);
+      color: #fff;
+      font: 300 32px/1 "DM Sans", sans-serif;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background .2s ease, opacity .2s ease;
+    }
+    .suite-gallery-arrow:hover { background: rgba(23,23,20,.88); }
+    .suite-gallery-prev { left: 18px; }
+    .suite-gallery-next { right: 18px; }
+    .suite-gallery-footer {
+      min-height: 54px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      background: #171714;
+      color: #fff;
+    }
+    .suite-gallery-caption {
+      font: 600 10px/1.4 "DM Sans", sans-serif;
+      letter-spacing: .13em;
+    }
+    .suite-gallery-controls { display: flex; align-items: center; gap: 8px; }
+    .suite-gallery-dot {
+      width: 8px;
+      height: 8px;
+      min-width: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.42);
+      cursor: pointer;
+    }
+    .suite-gallery-dot.is-active { background: #fff; transform: scale(1.25); }
+    .suite-gallery-count {
+      min-width: 42px;
+      text-align: right;
+      font: 500 10px/1 "DM Sans", sans-serif;
+      letter-spacing: .1em;
+    }
+    .suite-gallery-arrow:focus-visible,
+    .suite-gallery-dot:focus-visible {
+      outline: 2px solid #c7a77a;
+      outline-offset: 4px;
+    }
+    @media (max-width: 700px) {
+      .suite-section .suite-gallery { width: 100%; }
+      .suite-gallery-stage { aspect-ratio: 4 / 5; max-height: 620px; }
+      .suite-gallery-arrow { width: 42px; height: 42px; }
+      .suite-gallery-prev { left: 12px; }
+      .suite-gallery-next { right: 12px; }
+      .suite-gallery-footer { padding: 11px 13px; gap: 9px; }
+      .suite-gallery-caption { font-size: 9px; letter-spacing: .09em; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .suite-gallery-slide { transition: none; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header" id="top">
@@ -23,7 +137,7 @@
       <a href="#suites">OUR SUITES</a>
       <a href="#professionals">FIND A STYLIST</a>
       <a href="#experience">THE EXPERIENCE</a>
-      <a href="locations.html" target="_blank" rel="noopener">LOCATIONS</a>
+      <a href="locations.html">LOCATIONS</a>
       <a class="nav-cta" href="leasing-form.html">RENT A SUITE <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
@@ -68,12 +182,33 @@
     </section>
 
     <section class="suite-section" id="suites">
-      <div class="suite-video-wrap">
-        <video class="suite-intro-video" controls playsinline preload="metadata" poster="assets/hallway-real.jpg" aria-label="A video tour of 60 Salon Suites in Brandon">
-          <source src="assets/60salonsuitesintro.mp4" type="video/mp4">
-          Your browser does not support HTML video.
-        </video>
-        <span class="video-caption">TAKE A LOOK INSIDE · BRANDON, FLORIDA</span>
+      <div class="suite-video-wrap suite-gallery" aria-label="Photo tour of 60 Salon Suites">
+        <div class="suite-gallery-stage" aria-live="polite">
+          <figure class="suite-gallery-slide is-active">
+            <img src="assets/showcase-exterior.jpg" alt="Exterior storefront of 60 Salon Suites in Brandon, Florida" fetchpriority="high">
+          </figure>
+          <figure class="suite-gallery-slide">
+            <img src="assets/showcase-suite.jpg" alt="Bright private salon suite with wood-look flooring" loading="lazy">
+          </figure>
+          <figure class="suite-gallery-slide">
+            <img src="assets/showcase-sink.jpg" alt="Private salon suite with its own wash basin" loading="lazy">
+          </figure>
+          <figure class="suite-gallery-slide">
+            <img src="assets/showcase-hallway.jpg" alt="Interior hallway of 60 Salon Suites" loading="lazy">
+          </figure>
+        </div>
+        <button class="suite-gallery-arrow suite-gallery-prev" type="button" aria-label="Previous photo">‹</button>
+        <button class="suite-gallery-arrow suite-gallery-next" type="button" aria-label="Next photo">›</button>
+        <div class="suite-gallery-footer">
+          <span class="suite-gallery-caption">THE PROPERTY · BRANDON, FLORIDA</span>
+          <div class="suite-gallery-controls" aria-label="Choose a photo">
+            <button type="button" class="suite-gallery-dot is-active" aria-label="Show photo 1" aria-current="true"></button>
+            <button type="button" class="suite-gallery-dot" aria-label="Show photo 2"></button>
+            <button type="button" class="suite-gallery-dot" aria-label="Show photo 3"></button>
+            <button type="button" class="suite-gallery-dot" aria-label="Show photo 4"></button>
+          </div>
+          <span class="suite-gallery-count">01 / 04</span>
+        </div>
       </div>
       <div class="suite-copy">
         <p class="eyebrow">02 / YOUR SPACE</p>
@@ -160,7 +295,7 @@
           <a href="leasing-form.html">LEASING</a>
         </div>
         <div>
-          <a href="locations.html" target="_blank" rel="noopener">LOCATIONS</a>
+          <a href="locations.html">LOCATIONS</a>
           <a href="suite-directory.html">SUITES DIRECTORY</a>
           <a href="leasing-form.html">LEASING FORM</a>
         </div>
@@ -180,6 +315,92 @@
     </div>
     <div class="footer-disclaimer">© 2026 60 Salon Suites. Every salon professional and salon business within a 60 Salon Suites establishment is also independently owned and operated. 60 Salon Suites bears no responsibility for the day-to-day operations, employment decisions, or personnel matters made by franchise owners or independent salon professionals/businesses.</div>
   </footer>
+
+  <script>
+    (() => {
+      const gallery = document.querySelector(".suite-gallery");
+      if (!gallery || gallery.dataset.initialized === "true") return;
+      gallery.dataset.initialized = "true";
+
+      const slides = Array.from(gallery.querySelectorAll(".suite-gallery-slide"));
+      const dots = Array.from(gallery.querySelectorAll(".suite-gallery-dot"));
+      const previous = gallery.querySelector(".suite-gallery-prev");
+      const next = gallery.querySelector(".suite-gallery-next");
+      const caption = gallery.querySelector(".suite-gallery-caption");
+      const count = gallery.querySelector(".suite-gallery-count");
+      const captions = [
+        "THE PROPERTY · BRANDON, FLORIDA",
+        "PRIVATE SALON SUITES",
+        "YOUR OWN PROFESSIONAL SPACE",
+        "A PLACE TO WELCOME YOUR CLIENTS"
+      ];
+
+      let current = 0;
+      let timer = null;
+      let touchStartX = 0;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const delay = 4500;
+
+      function showSlide(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          const active = i === current;
+          slide.classList.toggle("is-active", active);
+          slide.setAttribute("aria-hidden", String(!active));
+        });
+        dots.forEach((dot, i) => {
+          const active = i === current;
+          dot.classList.toggle("is-active", active);
+          if (active) dot.setAttribute("aria-current", "true");
+          else dot.removeAttribute("aria-current");
+        });
+        caption.textContent = captions[current];
+        count.textContent = String(current + 1).padStart(2, "0") + " / " +
+                            String(slides.length).padStart(2, "0");
+      }
+
+      function stopAuto() {
+        if (timer) window.clearInterval(timer);
+        timer = null;
+      }
+      function startAuto() {
+        stopAuto();
+        if (reducedMotion || document.hidden) return;
+        timer = window.setInterval(() => showSlide(current + 1), delay);
+      }
+      function userNavigate(index) {
+        showSlide(index);
+        startAuto();
+      }
+
+      previous.addEventListener("click", () => userNavigate(current - 1));
+      next.addEventListener("click", () => userNavigate(current + 1));
+      dots.forEach((dot, i) => dot.addEventListener("click", () => userNavigate(i)));
+
+      gallery.addEventListener("mouseenter", stopAuto);
+      gallery.addEventListener("mouseleave", startAuto);
+      gallery.addEventListener("focusin", stopAuto);
+      gallery.addEventListener("focusout", event => {
+        if (!gallery.contains(event.relatedTarget)) startAuto();
+      });
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stopAuto();
+        else startAuto();
+      });
+
+      gallery.addEventListener("touchstart", event => {
+        touchStartX = event.changedTouches[0].clientX;
+      }, { passive: true });
+      gallery.addEventListener("touchend", event => {
+        const delta = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(delta) > 45) userNavigate(current + (delta < 0 ? 1 : -1));
+      }, { passive: true });
+
+      showSlide(0);
+      startAuto();
+    })();
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
